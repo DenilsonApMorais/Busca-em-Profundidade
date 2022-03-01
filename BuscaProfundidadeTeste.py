@@ -25,22 +25,21 @@ grafo = [ [1, 2], # vizinhos do noh 0
 	 [7, 8, 9]] #vizinhos do noh 10
 
 	 
-visitados = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,]
+visitados = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
 
 def busca(origem, destino):
-	pilha = []
-	#pdb.set_trace()
-	pilha.append(origem) # equivale ao push
-	while len(pilha) > 0:
-		noAtual = pilha.pop()
-		if visitados[noAtual] == -1:
-			visitados[noAtual] = 1
-			print(mapa[noAtual])
-			if noAtual == destino:
+	pilha = [] 
+	pilha.append(origem) # Adciona a origem na pilha
+	while len(pilha) > 0: # Enquanto tiver elementos na pilha 
+		noAtual = pilha.pop()  # Desempilha no no atual
+		if visitados[noAtual] == -1: # Se o nó atual ainda não foi visitado
+			visitados[noAtual] = 1   # Marque-o como visitado
+			print(mapa[noAtual])   # mostra o caminho que estamos percorrendo 
+			if noAtual == destino:  #se encontramos o alvo paramos
 				print("Destino Encontrado!")
 				break
 			else:
-				for noh in grafo[noAtual]:
+				for noh in grafo[noAtual]: # se não encontrou adcione o proximo nó a pilha
 					pilha.append(noh)
 
 
@@ -63,6 +62,3 @@ origem = int(input('Digite a origem: '))
 destino = int(input('Digite o destino: '))
 
 busca(origem, destino)
-
-
-
