@@ -28,7 +28,7 @@ if __name__ == '__main__':
 		if origem < 0 or origem > 10 or destino < 0 or destino > 10:
 			print("O valor desejado está fora do esperado!!")	
 			print('Digite um valor entre 0 e 10 \n')
-			
+
 		else:
 			obj.busca(origem, destino)
 			break

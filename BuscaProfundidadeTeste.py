@@ -29,6 +29,7 @@ class BuscaProf:
 	
 
 	def busca(self,origem, destino):
+		
 		pilha = [] 
 		pilha.append(origem) # Adciona a origem na pilha
 		while len(pilha) > 0: # Enquanto tiver elementos na pilha 
@@ -36,6 +37,14 @@ class BuscaProf:
 
 			if self.visitados[noAtual] == -1: # Se o nó atual ainda não foi visitado
 				self.visitados[noAtual] = 1   # Marque-o como visitado
+
+				if destino == self.grafo[noAtual][0] or destino == self.grafo[noAtual][1]:
+					print (self.mapa[noAtual])
+					print(self.mapa[destino]) 
+					print("\nDestino Encontrado!")
+
+					break
+
 				print(self.mapa[noAtual])   # mostra o caminho que estamos percorrendo 
 
 				if noAtual == destino:  #se encontramos o alvo paramos
@@ -43,7 +52,7 @@ class BuscaProf:
 					break
 				else:
 
-					for no in self.grafo[noAtual]: 						
-						pilha.append(no) # se não encontrou adcione o proximo nó a pilha
+					for no in self.grafo[noAtual]: 			
+						pilha.append(no)# se não encontrou adcione o proximo nó a pilha
 
 
