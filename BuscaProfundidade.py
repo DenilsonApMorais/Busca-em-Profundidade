@@ -1,6 +1,6 @@
 class BuscaProf:
 
-	def __init__(self):
+	def __init__(self): 
 		self.visitados = [-1]*11
 		self.mapa = {
 		0: 'Montes Claros',
