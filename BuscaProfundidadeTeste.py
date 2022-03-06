@@ -1,3 +1,5 @@
+visitados = [-1,]*11
+print(visitados)
 mapa = {
 0: 'Montes Claros',
 1: 'Diamantina',
@@ -12,20 +14,19 @@ mapa = {
 10: 'São Lourenço'}
 
 
-grafo = [ [1, 2], # vizinhos do noh 0
+grafo = [ [1, 2], # vizinhos do no 0
 	 [0, 4, 5],  # vizinhos do no 1
-	 [0, 3], #vizinhos do noh 2
-	 [2, 5, 7], #vizinhos do noh 3
-	 [1, 6], #vizinhos do noh 4
-	 [1, 3, 6, 8], #vizinhos do noh 5
-	 [4, 5, 9], #vizinhos do noh 6
-	 [3, 10], #vizinhos do noh 7
-	 [5, 9, 10], #vizinhos do noh 8
-	 [6, 8, 10], #vizinhos do noh 9
-	 [7, 8, 9]] #vizinhos do noh 10
+	 [0, 3], #vizinhos do no 2
+	 [2, 5, 7], #vizinhos do no 3
+	 [1, 6], #vizinhos do no 4
+	 [1, 3, 6, 8], #vizinhos do no 5
+	 [4, 5, 9], #vizinhos do no 6
+	 [3, 10], #vizinhos do no 7
+	 [5, 9, 10], #vizinhos do no 8
+	 [6, 8, 10], #vizinhos do no 9
+	 [7, 8, 9]] #vizinhos do no 10
 
 	 
-visitados = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
 
 def busca(origem, destino):
 	pilha = [] 
@@ -36,11 +37,11 @@ def busca(origem, destino):
 			visitados[noAtual] = 1   # Marque-o como visitado
 			print(mapa[noAtual])   # mostra o caminho que estamos percorrendo 
 			if noAtual == destino:  #se encontramos o alvo paramos
-				print("Destino Encontrado!")
+				print("\nDestino Encontrado!")
 				break
 			else:
-				for noh in grafo[noAtual]: # se não encontrou adcione o proximo nó a pilha
-					pilha.append(noh)
+				for no in grafo[noAtual]: # se não encontrou adcione o proximo nó a pilha
+					pilha.append(no)
 
 
 
@@ -57,8 +58,14 @@ print("""As cidade disponíveis são:
 9: juiz de Fora
 10: São Lourenço
 """)
+while True:
 
-origem = int(input('Digite a origem: '))
-destino = int(input('Digite o destino: '))
+	origem = int(input('Digite a origem: '))
+	destino = int(input('Digite o destino: '))
 
-busca(origem, destino)
+	if origem < 0 or origem > 10 or destino < 0 or destino > 10:
+		print("O valor desejado está fora do esperado!!")	
+		print('Digite um valor entre 0 e 10 \n')
+	else:
+		busca(origem, destino)
+		break
