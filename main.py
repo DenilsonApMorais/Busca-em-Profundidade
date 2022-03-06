@@ -1,10 +1,10 @@
-from BuscaProfundidadeTeste import BuscaProf
+from BuscaProfundidade import BuscaProf
 
 
 if __name__ == '__main__':
     
 	
-	obj = BuscaProf()
+	#obj = BuscaProf()
 
 	print("""As cidade disponíveis são:
 	0: Montes Claros
@@ -19,9 +19,10 @@ if __name__ == '__main__':
 	9: juiz de Fora
 	10: São Lourenço
 	""")
-
-	while True:
-
+ 	
+	cond = 's'
+	while cond == 's':
+		obj = BuscaProf()
 		origem = int(input('Digite a origem: '))
 		destino = int(input('Digite o destino: '))
 
@@ -31,6 +32,8 @@ if __name__ == '__main__':
 
 		else:
 			obj.busca(origem, destino)
-			break
+			
+			cond = input('\nDeseja continuar? (s/n): ')
+			
 
 

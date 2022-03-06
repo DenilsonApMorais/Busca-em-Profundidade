@@ -38,14 +38,18 @@ class BuscaProf:
 			if self.visitados[noAtual] == -1: # Se o nó atual ainda não foi visitado
 				self.visitados[noAtual] = 1   # Marque-o como visitado
 
-				if destino == self.grafo[noAtual][0] or destino == self.grafo[noAtual][1]:
-					print (self.mapa[noAtual])
-					print(self.mapa[destino]) 
-					print("\nDestino Encontrado!")
+				try:
+					if destino == self.grafo[noAtual][0] or destino == self.grafo[noAtual][1] or destino == self.grafo[noAtual][2]:
+						print (self.mapa[noAtual])
+						print(self.mapa[destino])
+						print("\nDestino Encontrado!")
 
-					break
+						break
+				except:
+					print(end ='')	
 
-				print(self.mapa[noAtual])   # mostra o caminho que estamos percorrendo 
+				print(self.mapa[noAtual])  # mostra o caminho que estamos percorrendo
+
 
 				if noAtual == destino:  #se encontramos o alvo paramos
 					print("\nDestino Encontrado!")
