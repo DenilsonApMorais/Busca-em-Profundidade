@@ -11,8 +11,8 @@ class BuscaProf:
 		5: 'Belo Horizonte',
 		6: 'Ipatinga',
 		7: 'Poços de Caldas',
-		8: 'São João Del Dey',
-		9: 'juiz de Fora',
+		8: 'São João Del Rey',
+		9: 'Juiz de Fora',
 		10: 'São Lourenço'}
 
 		self.grafo = [ [1, 2], # vizinhos do no 0
@@ -31,7 +31,7 @@ class BuscaProf:
 	def busca(self,origem, destino):
 		
 		pilha = [] 
-		pilha.append(origem) # Adciona a origem na pilha
+		pilha.append(origem) # Adiciona a origem na pilha
 		while len(pilha) > 0: # Enquanto tiver elementos na pilha 
 			noAtual = pilha.pop()  # Desempilha no no atual	
 
@@ -39,24 +39,27 @@ class BuscaProf:
 				self.visitados[noAtual] = 1   # Marque-o como visitado
 
 				try:
+					## destino vizinho do nó atual
 					if destino == self.grafo[noAtual][0] or destino == self.grafo[noAtual][1] or destino == self.grafo[noAtual][2]:
 						print (self.mapa[noAtual])
 						print(self.mapa[destino])
 						print("\nDestino Encontrado!")
-
 						break
+
 				except:
 					print(end ='')	
 
+				# se o meu vizinho proximo não for o destino.
 				print(self.mapa[noAtual])  # mostra o caminho que estamos percorrendo
-
 
 				if noAtual == destino:  #se encontramos o alvo paramos
 					print("\nDestino Encontrado!")
 					break
+				
 				else:
 
-					for no in self.grafo[noAtual]: 			
-						pilha.append(no)# se não encontrou adcione o proximo nó a pilha
+					for no in self.grafo[noAtual]: 	## empilha os vizinhos do nó atual
+						#print(no,'atual ') #vê quais são os visinhos do nó atual
+						pilha.append(no)# se não encontrou adicione o proximo nó a pilha
 
 

@@ -31,8 +31,6 @@ if __name__ == '__main__':
 
 		else:
 			obj.busca(origem, destino)
-			
 			cond = input('\nDeseja continuar? (s/n): ')
 			
-
 
